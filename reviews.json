@@ -1,0 +1,124 @@
+{
+  "reviews": [
+    {
+      "professor": "Dr. John Smith",
+      "subject": "Psychology",
+      "stars": 5,
+      "review": "Dr. Smith is an amazing lecturer. His classes are engaging and he genuinely cares about his students."
+    },
+    {
+      "professor": "Dr. Emily Davis",
+      "subject": "Mathematics",
+      "stars": 4,
+      "review": "Dr. Davis explains concepts well, but her exams can be tricky. Attend office hours!"
+    },
+    {
+      "professor": "Michael Lee",
+      "subject": "Ancient History",
+      "stars": 3,
+      "review": "Interesting lectures, but the reading load is heavy. Be prepared to write long essays."
+    },
+    {
+      "professor": "Dr. Susan Rodriguez",
+      "subject": "Organic Chemistry",
+      "stars": 2,
+      "review": "The class is tough and Dr. Rodriguez moves quickly. Labs are especially challenging."
+    },
+    {
+      "professor": "David Kim",
+      "subject": "Philosophy",
+      "stars": 4,
+      "review": "Thought-provoking lectures. Professor Kim encourages deep thinking and discussion."
+    },
+    {
+      "professor": "Dr. Karen Johnson",
+      "subject": "World Literature",
+      "stars": 5,
+      "review": "Dr. Johnson is very knowledgeable and her passion for literature is contagious. Highly recommended."
+    },
+    {
+      "professor": "Dr. Robert Brown",
+      "subject": "Physics",
+      "stars": 3,
+      "review": "The material is difficult, and Dr. Brown's lectures are a bit dry. Study groups are a must."
+    },
+    {
+      "professor": "Linda White",
+      "subject": "Sociology",
+      "stars": 4,
+      "review": "A very interesting course with a lot of discussion. Professor White is approachable and fair."
+    },
+    {
+      "professor": "Dr. William Green",
+      "subject": "Microeconomics",
+      "stars": 2,
+      "review": "Dr. Green's lectures are very technical and he doesn't always explain concepts clearly."
+    },
+    {
+      "professor": "Jessica Taylor",
+      "subject": "Programming",
+      "stars": 5,
+      "review": "Professor Taylor makes coding fun and accessible. Great for beginners!"
+    },
+    {
+      "professor": "Dr. Thomas Anderson",
+      "subject": "Environmental Science",
+      "stars": 4,
+      "review": "Interesting course material, though Dr. Anderson's lectures can be a bit monotonous."
+    },
+    {
+      "professor": "Sarah Harris",
+      "subject": "Art History",
+      "stars": 5,
+      "review": "Professor Harris is passionate about art and it shows. Her classes are very enjoyable."
+    },
+    {
+      "professor": "Dr. Charles Clark",
+      "subject": "Statistics",
+      "stars": 3,
+      "review": "Dr. Clark is knowledgeable but his teaching style can be a bit confusing. Practice problems are essential."
+    },
+    {
+      "professor": "Angela Martinez",
+      "subject": "Creative Writing",
+      "stars": 4,
+      "review": "A great class for aspiring writers. Professor Martinez provides constructive feedback."
+    },
+    {
+      "professor": "Dr. Richard Wilson",
+      "subject": "Biochemistry",
+      "stars": 2,
+      "review": "Dr. Wilson's exams are very difficult and the lectures can be hard to follow."
+    },
+    {
+      "professor": "Olivia Moore",
+      "subject": "Political Science",
+      "stars": 5,
+      "review": "Professor Moore is engaging and well-informed. Her classes are dynamic and interactive."
+    },
+    {
+      "professor": "Dr. Brian Walker",
+      "subject": "Ethics",
+      "stars": 3,
+      "review": "The course content is interesting, but Dr. Walker's grading is tough."
+    },
+    {
+      "professor": "Lisa Hall",
+      "subject": "American History",
+      "stars": 4,
+      "review": "Professor Hall presents history in a captivating way. There's a lot of reading, but it's worth it."
+    },
+    {
+      "professor": "Dr. Kevin Adams",
+      "subject": "Genetics",
+      "stars": 2,
+      "review": "The material is challenging and Dr. Adams doesn't offer much help outside of lectures."
+    },
+    {
+      "professor": "Megan Lewis",
+      "subject": "Marketing",
+      "stars": 4,
+      "review": "Professor Lewis brings real-world examples to class. The group projects are intense but rewarding."
+    }
+  ]
+}
