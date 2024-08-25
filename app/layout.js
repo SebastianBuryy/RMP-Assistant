@@ -6,7 +6,7 @@ import { NextUIProvider } from "@nextui-org/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Rate My Professor AI Assistant",
+  title: "ProfSelector AI",
   description: "Built by Sebastian Bury",
 };
 

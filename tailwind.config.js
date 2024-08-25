@@ -13,9 +13,22 @@ module.exports = {
       boxShadow: {
         'sm': '0 2px 4px 0 rgba(0, 0, 0, 0.5)',
         'md': '0 0px 10px 4px rgba(153, 88, 238, 0.5)',
-        'lg': '0 0px 10px 4px rgba(255, 255, 255, 1)',
-        'xl': '0px 0px 10px 4px rgba(230, 115, 253, 1)',
-        '2xl': '0 32px 64px 0 rgba(0, 0, 0, 0.5)',
+        'lg': '0 0px 10px 4px rgba(255, 255, 255, 0.8)',
+        'xl': '0px 0px 10px 4px rgba(153, 88, 238, 1)',
+        '2xl': '0 0px 10px 2px rgba(0, 0, 0, 0.3)',
+        '3xl': '0 0px 10px 6px rgba(153, 108, 238, 1)',
+      },
+      dropShadow: {
+        'sm': '0 2px 4px 0 rgba(0, 0, 0, 0.5)',
+        'md': '0 0px 10px 4px rgba(153, 88, 238, 0.5)',
+        'lg': 'filter: drop-shadow(0 1px 2px rgb(255 255 255 / 0.1)) drop-shadow(0 1px 1px rgb(255 255 255 / 0.06))',
+        'xl': '0px 20px 10px 4px rgba(153, 88, 238, 1)',
+        '2xl': '0 0px 10px 4px rgba(153, 88, 238, 1)',
+      },
+      textShadow: {
+        sm: '0 1px 2px var(--tw-shadow-color)',
+        DEFAULT: '0 2px 4px var(--tw-shadow-color)',
+        lg: '0 8px 16px var(--tw-shadow-color)',
       },
       colors: {
         'amethyst': {
