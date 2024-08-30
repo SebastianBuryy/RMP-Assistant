@@ -21,8 +21,8 @@ export default function Assistant() {
 
     const [message, setMessage] = useState("");
     const [professorUrl, setProfessorUrl] = useState("");
-
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
+    const [chartData, setChartData] = useState(null);
 
     const sendMessage = async () => {
         setMessage("");
@@ -60,18 +60,23 @@ export default function Assistant() {
                 });
 
                 return reader.read().then(processText);
-            })
+            });
         });
     };
 
     const submitProfessor = async () => {
-        const response = fetch("/api/professor", {
+        const response = await fetch("/api/professor", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ url: professorUrl }),
         });
+
+        if (!response.ok) {
+            console.error("Error submitting professor: ", response.statusText);
+            return;
+        }
 
         const data = await response.json();
         console.log(data);
@@ -89,7 +94,7 @@ export default function Assistant() {
                         return (
                             <div key={index} className={`flex ${message.role === "assistant" ? "justify-start" : "justify-end"}`}>
                                 <div className={`flex-col flex rounded-xl text-white p-3 mb-2 ${message.role === "assistant" ? "bg-amethyst-500" : "bg-amethyst-400"}`}>
-                                    <ReactMarkdown>{message.content}</ReactMarkdown>
+                                    <ReactMarkdown className="prose">{message.content}</ReactMarkdown>
                                 </div>
                             </div>
                         );

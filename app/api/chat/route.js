@@ -9,56 +9,35 @@ Core Functionality:
 Query Interpretation: Accurately interpret and understand the student's query, identifying the key elements such as the subject, department, rating preferences, teaching style, or other specific attributes the student is seeking in a professor.
 Information Retrieval: Utilize a Retrieval-Augmented Generation (RAG) approach to gather up-to-date and relevant information about professors from a comprehensive database. Ensure the information retrieved is highly relevant to the student's query.
 Rank and Present: Analyze and rank the results based on their relevance to the student's needs. Present the top 3 professors who best match the student's query, providing detailed information for each.
-Response Structure:
-For each professor presented, include the following elements:
 
-Professor's Full Name: Clearly state the professor’s full name.
-Course/Subject: Specify the course or subject that the professor teaches, which is relevant to the student’s query.
-Overall Rating: Provide the professor's average rating out of 5. This rating should reflect student feedback on various aspects such as teaching quality, clarity, helpfulness, and overall satisfaction.
-Review Summary: Offer a concise yet informative summary of what students typically say about this professor. This should capture the essence of the professor's teaching style, strengths, and any recurring feedback (positive or negative).
-Additional Insights: Include any additional relevant details, such as specific strengths (e.g., approachable, excellent at explaining complex topics), common challenges (e.g., tough grading, heavy workload), or unique attributes (e.g., uses innovative teaching methods, highly engaging lectures).
-Response Style:
-Clarity and Precision: Your responses should be clear, concise, and to the point, ensuring that the information is easy to understand and directly addresses the student’s query.
-Objectivity: Maintain an unbiased tone, presenting facts and student feedback without inserting personal opinions.
-Helpfulness: Aim to be as helpful as possible, offering additional guidance if the student's query is broad or unclear. You may ask clarifying questions if needed to better understand the student's needs.
-Politeness and Professionalism: Always respond in a polite and professional manner, ensuring that the student feels respected and supported.
+When providing responses, please use Markdown to format your output.
 
-When providing responses, please use Markdown to format your output. Use bullet points for lists, bold text for emphasis, and ensure that paragraphs are properly spaced.
+Use the layout below to exactly format each response with data from JSON:
 
-Example Formatting:
-1. **Professor Name**
-     • **Course:** Course Name
-     • **Overall Rating:** X/5 rating
-     • **Review Summary:** Summary of the review
-     • **Additional Insights:** Additional notes
+   **{nameOfProfessor}** is a {description}.
+    
 
-Make sure to separate each professor profile with a horizontal line break (---) for better readability.
-Also, make sure to separate each paragraph with a double line space.
+    His students label his top qualities as *{tags.topTags}*.
+    
 
-Example Interaction:
-Student Query: "Can you recommend the best professors for introductory psychology courses?"
+    Over the course of his career, Professor {nameOfProfessor} has received an average rating of **{ratingValue}** out of **5**, based on **{numOfRatings}** reviews.
+    Students have described his level of difficulty as **{difficultyValue}** out of **5** and **{wouldTakeAgain}%** would take his class again.
+   
+    
+    # **Courses taught by Professor {nameOfProfessor}:**
+    // Insert here the different courses that are within each student review and give a little description of each course, formatted like a list with list items:
+    
+    - CourseName: {courseDescription}
+    - CourseName: {courseDescription}
+    - CourseName: {courseDescription}
+    
+    # **Student Reviews:**
 
-Response:
-Here are the top 3 professors for introductory psychology courses based on student feedback:
+    // Input 5 of their student reviews here, each starting with a bullet point and add more if the user requests so.
+    - **{reviews.date}**, **{reviews.course}**: "{reviews.review}" *(Rating: {reviews.rating}, Difficulty: {reviews.difficulty})*
+    
 
-Professor: Dr. John Smith
-
-Course/Subject: Introduction to Psychology
-Overall Rating: 4.8/5
-Review Summary: Dr. Smith is known for his engaging lectures and ability to make complex psychological concepts easy to understand. Students appreciate his approachable nature and the interactive discussions in his classes.
-Additional Insights: Many students have noted that attending his office hours can significantly enhance their understanding of the material.
-Professor: Dr. Emily Davis
-
-Course/Subject: Intro to Psychology
-Overall Rating: 4.5/5
-Review Summary: Dr. Davis is praised for her well-organized lectures and clear explanations. However, some students find her exams challenging, so thorough preparation is advised.
-Additional Insights: Dr. Davis incorporates real-world examples into her teaching, making the course content more relatable and easier to grasp.
-Professor: Professor Michael Lee
-
-Course/Subject: Psychology
-Overall Rating: 4.3/5
-Review Summary: Professor Lee’s classes are highly informative, though some students mention that his lectures can be fast-paced. He is particularly strong in discussing the historical context of psychological theories.
-Additional Insights: Students recommend reading the textbook alongside his lectures for a better understanding of the material.
+Use your capabilities to adjust each response, based on the professor's ratings and data, For example, if a professor has a high rating, you can mention that they are highly regarded and respected etc. However, If a professor has a low rating, you can mention that in a subtle way aswell.
 `
 export async function POST(request) {
     const data = await request.json();
@@ -83,13 +62,20 @@ export async function POST(request) {
 
     let resultString = ''
     results.matches.forEach((match) => {
+        const metadata = match.metadata;
         resultString += `
-        Returned Results:
-        Professor: ${match.id}
-        Review: ${match.metadata.stars}
-        Subject: ${match.metadata.subject}
-        Stars: ${match.metadata.stars}
-        \n\n`
+        ${metadata.professorName},
+        ${metadata.description},
+        ${metadata.professorName}, 
+        ${metadata.subject},
+        ${metadata.tags},
+        ${metadata.professorName},
+        ${metadata.ratingValue},
+        ${metadata.numOfRatings},
+        ${metadata.difficultyValue},
+        ${metadata.wouldTakeAgain},
+        ${metadata.reviews}
+        `;
     });
 
     const lastMessage = data[data.length - 1];

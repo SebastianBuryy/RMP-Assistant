@@ -96,22 +96,64 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.assistant-page::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background-image: url('/images/darkbg.jpg');
-  /* Replace with your image path */
   background-size: cover;
   background-position: center;
-  filter: brightness(80%);
-  filter: blur(50%);
-  /* Adjust brightness here */
-  z-index: -1;
-  /* Places the background behind the content */
+  background-repeat: no-repeat;
+}
+
+.prose {
+  /* or whatever your base font size is */
+  line-height: 1.75;
+  /* Adjust for readability */
+  margin: 0 auto;
+  /* Adds some padding around the text */
+
+  /* Paragraphs */
+  p {
+    margin-bottom: 0.25em;
+    /* Space between paragraphs */
+  }
+
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    line-height: 1.25;
+  }
+
+  /* Lists */
+  ul {
+    padding-left: 2rem;
+    /* Indentation for list items */
+    margin-bottom: 1.5em;
+    list-style-type: disc;
+    /* Space after the list */
+  }
+
+  ol {
+      padding-left: 2rem;
+      /* Indentation for list items */
+      margin-bottom: 1.5em;
+      list-style-type: decimal;
+      /* Space after the list */
+    }
+
+  ul li,
+  ol li {
+    margin-bottom: 0.5em;
+    /* Space between list items */
+  }
+
+  /* Links */
+  a {
+    color: #0070f3;
+    /* Your link color */
+    text-decoration: underline;
+  }
 }
